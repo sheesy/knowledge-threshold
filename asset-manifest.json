@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/knowledge-threshold/static/css/main.b6c00fe6.css",
+    "main.js": "/knowledge-threshold/static/js/main.da6627e7.js",
+    "index.html": "/knowledge-threshold/index.html",
+    "main.b6c00fe6.css.map": "/knowledge-threshold/static/css/main.b6c00fe6.css.map",
+    "main.da6627e7.js.map": "/knowledge-threshold/static/js/main.da6627e7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b6c00fe6.css",
+    "static/js/main.da6627e7.js"
+  ]
+}
