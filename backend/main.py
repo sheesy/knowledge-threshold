@@ -19,6 +19,7 @@ app = FastAPI(
 app.add_middleware(
     CORSMiddleware,
     allow_origins=[
+        "https://knowledge-threshold.vercel.app",
         "https://sheesy.github.io",
         "http://localhost:3000",
     ],
