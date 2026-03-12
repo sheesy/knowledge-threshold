@@ -1,0 +1,12 @@
+services:
+  - type: web
+    name: knowledge-threshold-api
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: uvicorn main:app --host 0.0.0.0 --port $PORT
+    envVars:
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DATABASE_URL
+        value: sqlite:///./knowledge_threshold.db
+    rootDir: backend
