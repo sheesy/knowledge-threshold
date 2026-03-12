@@ -19,7 +19,7 @@ export default function App() {
   useEffect(() => { init(); }, [init]);
 
   return (
-    <BrowserRouter basename="/knowledge-threshold">
+    <BrowserRouter>
       <Toaster
         position="top-right"
         toastOptions={{
