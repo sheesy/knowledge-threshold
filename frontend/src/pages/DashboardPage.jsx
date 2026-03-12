@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { RiAddLine, RiSearchLine, RiFileTextLine, RiCodeLine, RiQuestionLine, RiLinkLine, RiImageLine, RiDeleteBinLine, RiEditLine, RiLockLine, RiGlobalLine } from 'react-icons/ri';
+import { RiAddLine, RiSearchLine, RiFileTextLine, RiCodeLine, RiQuestionLine, RiLink, RiImageLine, RiDeleteBinLine, RiEditLine, RiLockLine, RiGlobalLine } from 'react-icons/ri';
 import { formatDistanceToNow } from 'date-fns';
 import { zhCN } from 'date-fns/locale';
 import toast from 'react-hot-toast';
@@ -11,7 +11,7 @@ const TYPE_CONFIG = {
   doc:   { icon: RiFileTextLine,  label: '文档',   cls: 'badge-doc' },
   code:  { icon: RiCodeLine,      label: '代码',   cls: 'badge-code' },
   qa:    { icon: RiQuestionLine,  label: 'Q&A',    cls: 'badge-qa' },
-  link:  { icon: RiLinkLine,      label: '链接',   cls: 'badge-link' },
+  link:  { icon: RiLink,      label: '链接',   cls: 'badge-link' },
   image: { icon: RiImageLine,     label: '图片',   cls: 'badge-image' },
 };
 
