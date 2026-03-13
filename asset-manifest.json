@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/knowledge-threshold/static/css/main.b6c00fe6.css",
-    "main.js": "/knowledge-threshold/static/js/main.da6627e7.js",
+    "main.css": "/knowledge-threshold/static/css/main.ecf6d947.css",
+    "main.js": "/knowledge-threshold/static/js/main.ec67eb8e.js",
     "index.html": "/knowledge-threshold/index.html",
-    "main.b6c00fe6.css.map": "/knowledge-threshold/static/css/main.b6c00fe6.css.map",
-    "main.da6627e7.js.map": "/knowledge-threshold/static/js/main.da6627e7.js.map"
+    "main.ecf6d947.css.map": "/knowledge-threshold/static/css/main.ecf6d947.css.map",
+    "main.ec67eb8e.js.map": "/knowledge-threshold/static/js/main.ec67eb8e.js.map"
   },
   "entrypoints": [
-    "static/css/main.b6c00fe6.css",
-    "static/js/main.da6627e7.js"
+    "static/css/main.ecf6d947.css",
+    "static/js/main.ec67eb8e.js"
   ]
 }
