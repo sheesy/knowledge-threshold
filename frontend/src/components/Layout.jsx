@@ -2,10 +2,12 @@ import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
 import { RiDashboardLine, RiCompassLine, RiAddLine, RiLogoutBoxLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import useAuthStore from '../store/authStore';
+import { ..., RiRobotLine } from 'react-icons/ri';
 
 const navItems = [
   { to: '/',        icon: RiDashboardLine, label: '我的知识库' },
   { to: '/explore', icon: RiCompassLine,   label: '公共探索' },
+  { to: '/rag',     icon: RiRobotLine,     label: 'AI问答' },
 ];
 
 export default function Layout() {

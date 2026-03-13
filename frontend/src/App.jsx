@@ -8,6 +8,7 @@ import DashboardPage from './pages/DashboardPage';
 import EditorPage   from './pages/EditorPage';
 import ExplorePage  from './pages/ExplorePage';
 import Layout       from './components/Layout';
+import RAGPage from './pages/RAGPage';
 
 function PrivateRoute({ children }) {
   const token = useAuthStore(s => s.token);
@@ -35,6 +36,7 @@ export default function App() {
           <Route path="new"      element={<EditorPage />} />
           <Route path="edit/:id" element={<EditorPage />} />
           <Route path="explore"  element={<ExplorePage />} />
+          <Route path="rag" element={<RAGPage />} />
         </Route>
         <Route path="*" element={<Navigate to="/" replace />} />
       </Routes>
