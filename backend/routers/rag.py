@@ -1,7 +1,7 @@
 from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
-from openai import OpenAI
+import google.generativeai as genai
 from core.database import get_db
 from core.security import get_current_user
 from models.entry import Entry
@@ -10,10 +10,8 @@ import os
 
 router = APIRouter()
 
-client = OpenAI(
-    api_key=os.getenv("DEEPSEEK_API_KEY"),
-    base_url="https://api.deepseek.com"
-)
+genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+model = genai.GenerativeModel("gemini-1.5-flash")
 
 class RAGRequest(BaseModel):
     question: str
@@ -31,7 +29,6 @@ def ask(
     if not body.question.strip():
         raise HTTPException(status_code=400, detail="问题不能为空")
 
-    # 从用户知识库里搜索相关条目
     term = f"%{body.question}%"
     entries = db.query(Entry).filter(
         Entry.user_id == current_user.id,
@@ -46,7 +43,6 @@ def ask(
             sources=[]
         )
 
-    # 构建上下文
     context = "\n\n".join([
         f"【{e.title}】\n{e.content_body or ''}"
         for e in entries
@@ -62,13 +58,8 @@ def ask(
 
 请用中文回答："""
 
-    response = client.chat.completions.create(
-        model="deepseek-chat",
-        messages=[{"role": "user", "content": prompt}],
-        max_tokens=1000,
-    )
-
-    answer = response.choices[0].message.content
+    response = model.generate_content(prompt)
+    answer = response.text
     sources = [e.title for e in entries]
 
     return RAGResponse(answer=answer, sources=sources)
