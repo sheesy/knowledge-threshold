@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import { Outlet, NavLink, useNavigate } from 'react-router-dom';
-import { RiDashboardLine, RiCompassLine, RiAddLine, RiLogoutBoxLine, RiMenuLine, RiCloseLine } from 'react-icons/ri';
+import { RiDashboardLine, RiCompassLine, RiAddLine, RiLogoutBoxLine, RiMenuLine, RiCloseLine,RiRobotLine } from 'react-icons/ri';
 import useAuthStore from '../store/authStore';
-import { ..., RiRobotLine } from 'react-icons/ri';
 
 const navItems = [
   { to: '/',        icon: RiDashboardLine, label: '我的知识库' },
