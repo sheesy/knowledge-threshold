@@ -2,6 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.orm import Session
 from pydantic import BaseModel
 import google.generativeai as genai
+from groq import Groq
 from core.database import get_db
 from core.security import get_current_user
 from models.entry import Entry
@@ -10,8 +11,9 @@ import os
 
 router = APIRouter()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-2.0-flash")
+#genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
+#model = genai.GenerativeModel("gemini-2.0-flash")
+client = Groq(api_key=os.getenv("GROQ_API_KEY"))
 
 class RAGRequest(BaseModel):
     question: str
@@ -58,8 +60,12 @@ def ask(
 
 请用中文回答："""
 
-    response = model.generate_content(prompt)
-    answer = response.text
+    response = client.chat.completions.create(
+        model="meta-llama/llama-4-scout-17b-16e-instruct",
+        messages=[{"role": "user", "content": prompt}],
+        max_tokens=1000,
+    )
+    answer = response.choices[0].message.content
     sources = [e.title for e in entries]
 
     return RAGResponse(answer=answer, sources=sources)
