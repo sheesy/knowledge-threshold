@@ -9,8 +9,8 @@
 | 前端 | React 18 + Tailwind CSS |
 | 后端 | Python FastAPI + SQLite |
 | 认证 | JWT (python-jose) |
-| 前端部署 | GitHub Pages |
-| 后端部署 | Render (免费 tier) |
+| 前端部署 | Vercel |
+| 后端部署 | Render|
 
 ---
 
@@ -42,7 +42,7 @@ npm start
 
 ---
 
-## 部署到 GitHub + Render
+## 部署到 Vercel + Render
 
 ### 步骤一：上传代码到 GitHub
 
@@ -65,22 +65,8 @@ git push -u origin main
 4. 添加环境变量：`SECRET_KEY` = 任意随机字符串
 5. 点击 Deploy，等待完成，复制后端 URL（如 `https://knowledge-threshold-api.onrender.com`）
 
-### 步骤三：配置前端 API 地址
+### 步骤三：部署前端到Vercel
 
-在 GitHub 仓库 → Settings → Secrets and variables → Actions，添加：
-
-```
-REACT_APP_API_URL = https://your-app-name.onrender.com
-```
-
-### 步骤四：开启 GitHub Pages
-
-1. 修改 `frontend/package.json` 中的 `homepage` 字段：
-   ```json
-   "homepage": "https://YOUR_USERNAME.github.io/knowledge-threshold"
-   ```
-2. 仓库 → Settings → Pages → Source 选择 `gh-pages` 分支
-3. 推送任意 frontend 目录变更触发自动部署
 
 ---
 
@@ -128,8 +114,11 @@ knowledge-threshold/
 
 ## Phase 2 规划（AI 核心）
 
-- [ ] pgvector 向量存储（迁移到 PostgreSQL）
+- [ ] pgvector 向量存储（迁移到 PostgreSQL）（已完成）
 - [ ] 语义搜索（OpenAI embeddings 或 bge-m3 本地模型）
-- [ ] RAG 知识问答（对自己的知识库提问）
+- [ ] RAG 知识问答（对自己的知识库提问）（已完成）
 - [ ] 知识图谱可视化（D3.js）
 - [ ] 知识相似度检测去重
+- [ ] 共享知识库，学习路径规划
+
+
